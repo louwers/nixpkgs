@@ -23,10 +23,12 @@
   libpeas2,
   gsettings-desktop-schemas,
   gettext,
+  wayland,
+  wayland-scanner,
 }:
 stdenv.mkDerivation rec {
   pname = "focustimer";
-  version = "1.1.1";
+  version = "1.1.5";
 
   strictDeps = true;
   __structuredAttrs = true;
@@ -35,7 +37,7 @@ stdenv.mkDerivation rec {
     owner = "focustimerhq";
     repo = "FocusTimer";
     tag = version;
-    hash = "sha256-ZtHyOsxRDEGwnfwyNGlIVebDayvIobePTOOs3xyw/VM=";
+    hash = "sha256-WW75wFJ6zqaxnGCK7CLIZMJmA5SYIZ52QOAoBc1wgPo=";
   };
 
   patches = [
@@ -63,6 +65,7 @@ stdenv.mkDerivation rec {
     vala
     wrapGAppsHook4
     desktop-file-utils
+    wayland-scanner
   ];
 
   buildInputs = [
@@ -79,6 +82,7 @@ stdenv.mkDerivation rec {
     json-glib
     libpeas2
     sqlite
+    wayland
   ];
 
   postInstall = ''
